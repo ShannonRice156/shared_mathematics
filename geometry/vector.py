@@ -31,7 +31,7 @@ class vector_base(ABC):
         self._dimensions = new_dimensions
 
 
-class vector(vector_base):
+class Vector(vector_base):
     """A class representing a vector. Inherits from vector_base which provides basic vector operations"""
 
     def __init__(self, x: float, y: float) -> None:
@@ -41,44 +41,44 @@ class vector(vector_base):
         self.y = y
         self.dimensions = (1, 2)
 
-    def __add__(self, addition_vector: vector) -> vector:
+    def __add__(self, addition_vector: Vector) -> Vector:
         """Adds another vector to the current vector and returns the result."""
         new_x = addition_vector.x + self.x
         new_y = addition_vector.y + self.y
-        return vector(new_x, new_y)
+        return Vector(new_x, new_y)
 
-    def __iadd__(self, addition_vector: vector) -> vector:
+    def __iadd__(self, addition_vector: Vector) -> Vector:
         """Adds another vector to the current vector in-place."""
         self.x += addition_vector.x
         self.y += addition_vector.y
         return self
 
-    def __mul__(self, multiplication_vector: vector) -> vector:
+    def __mul__(self, multiplication_vector: Vector) -> Vector:
         """Multiplies the current vector by another vector and returns the result."""
         new_x = multiplication_vector.x * self.x
         new_y = multiplication_vector.y * self.y
-        return vector(new_x, new_y)
+        return Vector(new_x, new_y)
 
-    def __imul__(self, multiplication_vector: vector) -> vector:
+    def __imul__(self, multiplication_vector: Vector) -> Vector:
         """Multiplies the current vector by another vector in-place."""
         self.x *= multiplication_vector.x
         self.y *= multiplication_vector.y
         return self
 
-    def __sub__(self, subtraction_vector: vector) -> vector:
+    def __sub__(self, subtraction_vector: Vector) -> Vector:
         """Subtracts another vector from the current vector and returns the result."""
         new_x = self.x - subtraction_vector.x
         new_y = self.y - subtraction_vector.y
-        return vector(new_x, new_y)
+        return Vector(new_x, new_y)
 
-    def __isub__(self, subtraction_vector: vector) -> vector:
+    def __isub__(self, subtraction_vector: Vector) -> Vector:
         """Subtracts another vector from the current vector in-place."""
         self.x -= subtraction_vector.x
         self.y -= subtraction_vector.y
         return self
 
 
-class vector_3D(vector_base):
+class Vector_3D(vector_base):
     """A class representing a 3d vector with an x, y and z axis. Inherits from vector_base which provides basic vector operations"""
 
     def __init__(self, x: float, y: float, z: float) -> None:
@@ -90,15 +90,15 @@ class vector_3D(vector_base):
         self.z = z
         self.dimensions = (1, 3)
 
-    def __add__(self, addition_vector: vector_3D) -> vector:
+    def __add__(self, addition_vector: Vector_3D) -> Vector_3D:
         """Adds another vector to the current vector and returns the result."""
 
         new_x = addition_vector.x + self.x
         new_y = addition_vector.y + self.y
         new_z = addition_vector.z + self.z
-        return vector_3D(new_x, new_y, new_z)
+        return Vector_3D(new_x, new_y, new_z)
 
-    def __iadd__(self, addition_vector: vector_3D) -> vector:
+    def __iadd__(self, addition_vector: Vector_3D) -> Vector_3D:
         """Adds another vector to the current vector in-place."""
 
         self.x += addition_vector.x
@@ -106,28 +106,28 @@ class vector_3D(vector_base):
         self.z += addition_vector.z
         return self
 
-    def __mul__(self, multiplication_vector: vector_3D) -> vector:
+    def __mul__(self, multiplication_vector: Vector_3D) -> Vector_3D:
         """Multiplies the current vector by another vector and returns the result."""
         new_x = self.x * multiplication_vector.x
         new_y = self.y * multiplication_vector.y
         new_z = self.z * multiplication_vector.z
-        return vector_3D(new_x, new_y, new_z)
+        return Vector_3D(new_x, new_y, new_z)
 
-    def __imul__(self, multiplication_vector: vector_3D) -> vector:
+    def __imul__(self, multiplication_vector: Vector_3D) -> Vector_3D:
         """Multiplies the current vector by another vector in-place."""
         self.x *= multiplication_vector.x
         self.y *= multiplication_vector.y
         self.z *= multiplication_vector.z
         return self
 
-    def __sub__(self, subtraction_vector: vector_3D) -> vector:
+    def __sub__(self, subtraction_vector: Vector_3D) -> Vector_3D:
         """Subtracts another vector from the current vector and returns the result."""
         new_x = self.x - subtraction_vector.x
         new_y = self.y - subtraction_vector.y
         new_z = self.z - subtraction_vector.z
-        return vector_3D(new_x, new_y, new_z)
+        return Vector_3D(new_x, new_y, new_z)
 
-    def __isub__(self, subtraction_vector: vector_3D) -> vector:
+    def __isub__(self, subtraction_vector: Vector_3D) -> Vector_3D:
         """Subtracts another vector from the current vector in-place."""
         self.x -= subtraction_vector.x
         self.y -= subtraction_vector.y
